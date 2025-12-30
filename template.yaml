@@ -1,0 +1,93 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for sam-app
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+
+  HelloWorldTestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world_test/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorldTest:
+          Type: Api
+          Properties:
+            Path: /hello-test
+            Method: get
+
+  HelloWorldTest1Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world_test1/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorldTest1:
+          Type: Api
+          Properties:
+            Path: /hello-test-1
+            Method: get
+
+Outputs:
+  HelloWorldApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+
+  HelloWorldFunctionArn:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt HelloWorldFunction.Arn
+
+  HelloWorldFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt HelloWorldFunctionRole.Arn
+
+  HelloWorldTestApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World Test function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-test/"
+
+  HelloWorldTestFunctionArn:
+    Description: "Hello World Test Lambda Function ARN"
+    Value: !GetAtt HelloWorldTestFunction.Arn
+
+  HelloWorldTestFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World Test function"
+    Value: !GetAtt HelloWorldTestFunctionRole.Arn
+
+  HelloWorldTest1Api:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World Test1 function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-test-1/"
+
+  HelloWorldTest1FunctionArn:
+    Description: "Hello World Test1 Lambda Function ARN"
+    Value: !GetAtt HelloWorldTest1Function.Arn
+
+  HelloWorldTest1FunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World Test1 function"
+    Value: !GetAtt HelloWorldTest1FunctionRole.Arn
