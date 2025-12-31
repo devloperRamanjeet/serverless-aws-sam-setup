@@ -18,7 +18,7 @@ confirm_changeset = true
 s3_prefix = "sam-app"
 region = "ap-southeast-2"
 image_repositories = []
-resolve_s3 = true
+
 
 [default.package.parameters]
 
