@@ -106,14 +106,14 @@ Outputs:
     Description: "Implicit IAM Role created for Hello World Test1 function"
     Value: !GetAtt HelloWorldTest1FunctionRole.Arn
 
-HelloWorldTestCDApi:
-  Description: "API Gateway endpoint URL for Prod stage for Hello World TestCD function"
-  Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-test-cd/"
+  HelloWorldTestCDApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World TestCD function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-test-cd/"
 
-HelloWorldTestCDFunctionArn:
-  Description: "Hello World TestCD Lambda Function ARN"
-  Value: !GetAtt HelloWorldTestCDFunction.Arn
+  HelloWorldTestCDFunctionArn:  
+    Description: "Hello World TestCD Lambda Function ARN"
+    Value: !GetAtt HelloWorldTestCDFunction.Arn
 
-HelloWorldTestCDFunctionIamRole:
-  Description: "Implicit IAM Role created for Hello World TestCD function"
-  Value: !GetAtt HelloWorldTestCDFunctionRole.Arn
+  HelloWorldTestCDFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World TestCD function"
+    Value: !GetAtt HelloWorldTestCDFunctionRole.Arn
