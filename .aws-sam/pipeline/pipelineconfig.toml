@@ -9,3 +9,10 @@ cloudformation_execution_role = "arn:aws:iam::116314222143:role/aws-sam-cli-mana
 artifacts_bucket = "aws-sam-cli-managed-testing-pipeli-artifactsbucket-qusne9huxp1k"
 image_repository = ""
 region = "ap-southeast-2"
+
+[production.pipeline_bootstrap.parameters]
+pipeline_execution_role = "arn:aws:iam::116314222143:role/aws-sam-cli-managed-productio-PipelineExecutionRole-8CD4RajmhNAM"
+cloudformation_execution_role = "arn:aws:iam::116314222143:role/aws-sam-cli-managed-produ-CloudFormationExecutionRo-4gFqjLiTtg3p"
+artifacts_bucket = "aws-sam-cli-managed-production-pip-artifactsbucket-m0ospqrwhev1"
+image_repository = ""
+region = "ap-southeast-2"
