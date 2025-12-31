@@ -13,7 +13,7 @@ env:
   PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
   PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.ACCESS_KEY_SECRET }}
   SAM_TEMPLATE: template.yaml
-  TESTING_STACK_NAME: cicd-serverless-sam
+  TESTING_STACK_NAME: sam-app
   TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::116314222143:role/aws-sam-cli-managed-testing-p-PipelineExecutionRole-b2dvrLs8dSrL
   TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::116314222143:role/aws-sam-cli-managed-testi-CloudFormationExecutionRo-ZwlvEv5I1NUi
   TESTING_ARTIFACTS_BUCKET: aws-sam-cli-managed-testing-pipeli-artifactsbucket-qusne9huxp1k
