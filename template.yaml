@@ -13,53 +13,17 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: .
-      Description: ''
-      MemorySize: 128
-      Timeout: 3
+      CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.13
       Architectures:
         - x86_64
-      EphemeralStorage:
-        Size: 512
-      EventInvokeConfig:
-        MaximumEventAgeInSeconds: 21600
-        MaximumRetryAttempts: 2
-      PackageType: Zip
-      Policies:
-        - Statement:
-            - Effect: Allow
-              Action:
-                - logs:CreateLogGroup
-                - logs:CreateLogStream
-                - logs:PutLogEvents
-              Resource: '*'
-      RecursiveLoop: Terminate
-      SnapStart:
-        ApplyOn: None
-      Tags:
-        lambda:createdBy: SAM
       Events:
-        Api1:
+        HelloWorld:
           Type: Api
           Properties:
             Path: /hello
-            Method: GET
-        BucketEvent1:
-          Type: S3
-          Properties:
-            Bucket:
-              Ref: Bucket1
-            Events:
-              - s3:ObjectCreated:*
-            Filter:
-              S3Key:
-                Rules:
-                  - Name: prefix
-                    Value: raw/
-      RuntimeManagementConfig:
-        UpdateRuntimeOn: Auto
+            Method: get
 
   HelloWorldTestFunction:
     Type: AWS::Serverless::Function
